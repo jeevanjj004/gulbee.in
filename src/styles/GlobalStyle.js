@@ -1,0 +1,24 @@
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: #0a0a1a;
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, .logo-text {
+    font-family: 'Orbitron', monospace;
+  }
+`;
+
+export default GlobalStyle;
