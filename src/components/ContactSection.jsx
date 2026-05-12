@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiMapPin, FiPhone, FiMail, FiClock, FiSend, FiMessageCircle } from 'react-icons/fi';
+import { FiMapPin, FiPhone, FiMail, FiSend, FiMessageCircle } from 'react-icons/fi';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -11,7 +11,6 @@ export default function ContactSection() {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
     console.log('Form submitted:', formData);
     alert('Thank you for reaching out! We will contact you soon.');
     setFormData({ name: '', email: '', message: '' });
@@ -23,22 +22,19 @@ export default function ContactSection() {
   
   return (
     <section id="contact" style={{
-      padding: '100px 2rem',
+      padding: '80px 20px',
       position: 'relative',
       zIndex: 2,
-      background: 'rgba(10, 10, 26, 0.8)'
+      background: 'rgba(10, 10, 26, 0.9)'
     }}>
-      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: '4rem' }}
-        >
+      <div style={{ 
+        maxWidth: '1200px', 
+        margin: '0 auto'
+      }}>
+        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
           <h2 style={{
-            fontSize: 'clamp(2rem, 5vw, 3rem)',
-            marginBottom: '1rem',
+            fontSize: '2.5rem',
+            marginBottom: '15px',
             fontFamily: 'Playfair Display, serif'
           }}>
             Contact <span style={{ color: '#5865f2' }}>Us</span>
@@ -46,149 +42,138 @@ export default function ContactSection() {
           <p style={{ color: '#b8c6db', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
             Get in touch with our team. We'd love to hear from you.
           </p>
-        </motion.div>
+        </div>
         
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-          gap: '3rem'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '30px'
         }}>
           {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', color: '#5865f2' }}>Get in Touch</h3>
+          <div style={{
+            background: 'rgba(255, 255, 255, 0.05)',
+            borderRadius: '20px',
+            padding: '30px',
+            border: '1px solid rgba(88, 101, 242, 0.2)'
+          }}>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '20px', color: '#5865f2' }}>Get in Touch</h3>
             
-            <div style={{ marginBottom: '1.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+            <div style={{ marginBottom: '20px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
                 <FiMapPin color="#5865f2" size={24} />
                 <div>
-                  <h4 style={{ marginBottom: '0.3rem' }}>Location</h4>
+                  <h4 style={{ marginBottom: '5px' }}>Location</h4>
                   <p style={{ color: '#b8c6db' }}>Kochara, Idukki, Kerala, India</p>
                 </div>
               </div>
               
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
                 <FiPhone color="#5865f2" size={24} />
                 <div>
-                  <h4 style={{ marginBottom: '0.3rem' }}>Phone</h4>
+                  <h4 style={{ marginBottom: '5px' }}>Phone</h4>
                   <p style={{ color: '#b8c6db' }}>+91 90618 99022</p>
                 </div>
               </div>
               
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
                 <FiMessageCircle color="#5865f2" size={24} />
                 <div>
-                  <h4 style={{ marginBottom: '0.3rem' }}>WhatsApp</h4>
+                  <h4 style={{ marginBottom: '5px' }}>WhatsApp</h4>
                   <p style={{ color: '#b8c6db' }}>+91 90618 99022</p>
                 </div>
               </div>
               
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
                 <FiMail color="#5865f2" size={24} />
                 <div>
-                  <h4 style={{ marginBottom: '0.3rem' }}>Email</h4>
+                  <h4 style={{ marginBottom: '5px' }}>Email</h4>
                   <p style={{ color: '#b8c6db' }}>teamgulbee@gmail.com</p>
                 </div>
               </div>
-              
-             
             </div>
-          </motion.div>
+          </div>
           
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              <div>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="Your Name"
-                  style={{
-                    width: '100%',
-                    padding: '1rem',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(88, 101, 242, 0.3)',
-                    borderRadius: '10px',
-                    color: 'white',
-                    fontSize: '1rem',
-                    outline: 'none',
-                    transition: 'all 0.3s'
-                  }}
-                  onFocus={(e) => e.target.style.borderColor = '#5865f2'}
-                  onBlur={(e) => e.target.style.borderColor = 'rgba(88, 101, 242, 0.3)'}
-                />
-              </div>
+          <div style={{
+            background: 'rgba(255, 255, 255, 0.05)',
+            borderRadius: '20px',
+            padding: '30px',
+            border: '1px solid rgba(88, 101, 242, 0.2)'
+          }}>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '20px', color: '#5865f2' }}>Send us a Message</h3>
+            
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                placeholder="Your Name"
+                style={{
+                  width: '100%',
+                  padding: '12px',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid rgba(88, 101, 242, 0.3)',
+                  borderRadius: '10px',
+                  color: 'white',
+                  fontSize: '1rem',
+                  outline: 'none'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#5865f2'}
+                onBlur={(e) => e.target.style.borderColor = 'rgba(88, 101, 242, 0.3)'}
+              />
               
-              <div>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="Your Email"
-                  style={{
-                    width: '100%',
-                    padding: '1rem',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(88, 101, 242, 0.3)',
-                    borderRadius: '10px',
-                    color: 'white',
-                    fontSize: '1rem',
-                    outline: 'none',
-                    transition: 'all 0.3s'
-                  }}
-                  onFocus={(e) => e.target.style.borderColor = '#5865f2'}
-                  onBlur={(e) => e.target.style.borderColor = 'rgba(88, 101, 242, 0.3)'}
-                />
-              </div>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                placeholder="Your Email"
+                style={{
+                  width: '100%',
+                  padding: '12px',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid rgba(88, 101, 242, 0.3)',
+                  borderRadius: '10px',
+                  color: 'white',
+                  fontSize: '1rem',
+                  outline: 'none'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#5865f2'}
+                onBlur={(e) => e.target.style.borderColor = 'rgba(88, 101, 242, 0.3)'}
+              />
               
-              <div>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  placeholder="Your Message"
-                  rows="5"
-                  style={{
-                    width: '100%',
-                    padding: '1rem',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(88, 101, 242, 0.3)',
-                    borderRadius: '10px',
-                    color: 'white',
-                    fontSize: '1rem',
-                    fontFamily: 'inherit',
-                    resize: 'vertical',
-                    outline: 'none',
-                    transition: 'all 0.3s'
-                  }}
-                  onFocus={(e) => e.target.style.borderColor = '#5865f2'}
-                  onBlur={(e) => e.target.style.borderColor = 'rgba(88, 101, 242, 0.3)'}
-                />
-              </div>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                placeholder="Your Message"
+                rows="5"
+                style={{
+                  width: '100%',
+                  padding: '12px',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid rgba(88, 101, 242, 0.3)',
+                  borderRadius: '10px',
+                  color: 'white',
+                  fontSize: '1rem',
+                  fontFamily: 'inherit',
+                  resize: 'vertical',
+                  outline: 'none'
+                }}
+                onFocus={(e) => e.target.style.borderColor = '#5865f2'}
+                onBlur={(e) => e.target.style.borderColor = 'rgba(88, 101, 242, 0.3)'}
+              />
               
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              <button
                 type="submit"
                 style={{
                   background: 'linear-gradient(135deg, #5865f2, #4b6cb7)',
                   border: 'none',
-                  padding: '1rem',
+                  padding: '12px',
                   borderRadius: '50px',
                   color: 'white',
                   fontWeight: 'bold',
@@ -197,13 +182,13 @@ export default function ContactSection() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '0.5rem'
+                  gap: '10px'
                 }}
               >
                 Send Message <FiSend />
-              </motion.button>
+              </button>
             </form>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

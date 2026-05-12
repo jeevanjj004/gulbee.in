@@ -6,7 +6,7 @@ import * as THREE from 'three';
 function ParticleField() {
   const pointsRef = useRef();
   
-  const particlesCount = 4000;
+  const particlesCount = 3000; // Reduced for better performance
   const positions = useMemo(() => {
     const positions = new Float32Array(particlesCount * 3);
     for (let i = 0; i < particlesCount; i++) {
@@ -28,8 +28,8 @@ function ParticleField() {
     <Points ref={pointsRef} positions={positions} stride={3}>
       <PointMaterial
         transparent
-        color="#ffd700"
-        size={0.3}
+        color="#5865f2" // Changed to match your theme (blue)
+        size={0.25}
         sizeAttenuation={true}
         depthWrite={false}
         blending={THREE.AdditiveBlending}
@@ -54,15 +54,15 @@ function GlowingOrb() {
     <mesh ref={orbRef} position={[0, 0, 0]}>
       <sphereGeometry args={[1.5, 64, 64]} />
       <meshStandardMaterial
-        color="#ffd700"
-        emissive="#ff8c00"
-        emissiveIntensity={0.8}
-        metalness={0.9}
-        roughness={0.2}
+        color="#5865f2" // Changed to blue theme
+        emissive="#4b6cb7"
+        emissiveIntensity={0.5}
+        metalness={0.8}
+        roughness={0.3}
         transparent
-        opacity={0.7}
+        opacity={0.6}
       />
-      <pointLight intensity={1.5} distance={30} color="#ffd700" />
+      <pointLight intensity={1.0} distance={30} color="#5865f2" />
     </mesh>
   );
 }
@@ -80,9 +80,16 @@ export default function Background3D() {
     }}>
       <Canvas
         camera={{ position: [0, 0, 35], fov: 75 }}
-        style={{ background: 'linear-gradient(135deg, #0a0a1a 0%, #0f0f2a 50%, #1a1a3a 100%)' }}
+        style={{ 
+          background: 'linear-gradient(135deg, #0a0a1a 0%, #0f0f2a 50%, #1a1a3a 100%)',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%'
+        }}
       >
-        <ambientLight intensity={0.2} />
+        <ambientLight intensity={0.3} />
         <GlowingOrb />
         <ParticleField />
         <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />

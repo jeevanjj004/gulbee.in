@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiLinkedin, FiMail, FiX } from 'react-icons/fi';
+import { FiLinkedin, FiMail, FiX, FiUser } from 'react-icons/fi';
 
 const teamMembers = [
   {
@@ -8,113 +8,101 @@ const teamMembers = [
     name: 'Jacob AJ',
     role: 'Director',
     category: 'Director',
-    image: '/assets/team/jacob-aj2.jpg',
     bio: 'Visionary leader with over 25 years of experience in business expansion and strategic planning. Passionate about innovation and family values.',
     expertise: ['Strategic Planning', 'Business Development', 'Leadership'],
     email: 'jacob.aj@gulbee.com',
-    linkedin: 'https://linkedin.com/in/jacob-aj'
+    linkedin: '#'
   },
   {
     id: 2,
     name: 'Annamma Jacob',
     role: 'Director',
     category: 'Director',
-    image: '/assets/team/annamma-jacob3.jpg',
     bio: 'Co-founder driving operational excellence and sustainable growth. Committed to nurturing talent and fostering innovation.',
     expertise: ['Operations Management', 'Finance', 'HR Strategy'],
     email: 'annamma.jacob@gulbee.com',
-    linkedin: 'https://linkedin.com/in/annamma-jacob'
+    linkedin: '#'
   },
   {
     id: 3,
     name: 'Jins Jacob',
     role: 'Co-founder & CEO',
     category: 'CEO',
-    image: '/assets/team/jins-jacob1.jpg',
     bio: 'Dynamic CEO leading digital transformation and global expansion initiatives. Tech enthusiast and future-forward thinker.',
     expertise: ['Digital Strategy', 'Innovation', 'Global Markets'],
     email: 'jins.jacob@gulbee.com',
-    linkedin: 'https://linkedin.com/in/jins-jacob'
+    linkedin: '#'
   },
   {
     id: 4,
     name: 'Thomas Jacob',
     role: 'Co-founder & CEO',
     category: 'CEO',
-    image: '/assets/team/thomas-jacob5.jpg',
     bio: 'Technology pioneer driving AI and automation initiatives across all business ventures.',
     expertise: ['Artificial Intelligence', 'Automation', 'Tech Innovation'],
     email: 'thomas.jacob@gulbee.com',
-    linkedin: 'https://linkedin.com/in/thomas-jacob'
+    linkedin: '#'
   },
   {
     id: 5,
     name: 'Jeo Jacob',
     role: 'Co-founder & CEO',
     category: 'Co-founder',
-    image: '/assets/team/jeo-jacob1.jpg',
     bio: 'Co-founder and strategic leader driving the company vision and long-term sustainable growth.',
     expertise: ['Strategic Alliances', 'Business Operations', 'Leadership'],
     email: 'jeo.jacob@gulbee.com',
-    linkedin: 'https://linkedin.com/in/jeo-jacob'
+    linkedin: '#'
   },
   {
     id: 6,
     name: 'Aleena Joseph',
     role: 'Executive Head',
     category: 'Executive Head',
-    image: '/assets/team/aleena-joseph5.jpg',
     bio: 'Visionary leader specializing in customer-centric solutions and business growth strategies.',
     expertise: ['Customer Experience', 'Marketing', 'Growth Strategy'],
     email: 'aleena.joseph@gulbee.com',
-    linkedin: 'https://linkedin.com/in/aleena-joseph'
+    linkedin: '#'
   }
 ];
 
-// Consistent image style for all members
-const imageStyle = {
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
-  objectPosition: 'center 30%',
-  transition: 'transform 0.5s'
-};
-
 export default function TeamSection() {
   const [selectedMember, setSelectedMember] = useState(null);
-  const [imageErrors, setImageErrors] = useState({});
   
-  // Separate directors from others
   const directors = teamMembers.filter(member => member.category === 'Director');
   const otherMembers = teamMembers.filter(member => member.category !== 'Director');
 
-  const handleImageError = (memberId) => {
-    setImageErrors(prev => ({ ...prev, [memberId]: true }));
-  };
-
   return (
     <section id="team" style={{
-      padding: '80px 2rem',
+      padding: 'clamp(60px, 10vh, 80px) clamp(1rem, 5vw, 2rem)',
       position: 'relative',
       zIndex: 2,
-      background: 'rgba(10, 10, 26, 0.7)'
+      background: 'rgba(10, 10, 26, 0.8)'
     }}>
-      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+      <div style={{ 
+        maxWidth: '1400px', 
+        margin: '0 auto',
+        width: '100%'
+      }}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: '3rem' }}
+          style={{ textAlign: 'center', marginBottom: 'clamp(2rem, 6vh, 3rem)' }}
         >
           <h2 style={{
-            fontSize: 'clamp(2rem, 5vw, 3rem)',
-            marginBottom: '1rem',
+            fontSize: 'clamp(1.8rem, 6vw, 3rem)',
+            marginBottom: 'clamp(0.8rem, 2vw, 1rem)',
             fontFamily: 'Playfair Display, serif'
           }}>
             Our Leadership <span style={{ color: '#5865f2' }}>Team</span>
           </h2>
-          <p style={{ color: '#b8c6db', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
+          <p style={{ 
+            color: '#b8c6db', 
+            fontSize: 'clamp(0.9rem, 3vw, 1.1rem)', 
+            maxWidth: 'min(600px, 90%)', 
+            margin: '0 auto' 
+          }}>
             Visionary leaders driving innovation and excellence
           </p>
         </motion.div>
@@ -125,12 +113,12 @@ export default function TeamSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          style={{ marginBottom: '4rem' }}
+          style={{ marginBottom: 'clamp(2rem, 6vh, 4rem)' }}
         >
           <h3 style={{
-            fontSize: '1.8rem',
+            fontSize: 'clamp(1.3rem, 5vw, 1.8rem)',
             textAlign: 'center',
-            marginBottom: '2rem',
+            marginBottom: 'clamp(1.5rem, 4vw, 2rem)',
             color: '#5865f2',
             fontFamily: 'Playfair Display, serif'
           }}>
@@ -138,8 +126,8 @@ export default function TeamSection() {
           </h3>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
+            gap: 'clamp(1.5rem, 4vw, 2rem)',
             maxWidth: '800px',
             margin: '0 auto'
           }}>
@@ -154,90 +142,42 @@ export default function TeamSection() {
                 onClick={() => setSelectedMember(member)}
                 style={{
                   cursor: 'pointer',
-                  position: 'relative',
-                  borderRadius: '12px',
-                  overflow: 'hidden',
+                  borderRadius: '20px',
                   background: 'rgba(255, 255, 255, 0.03)',
                   backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(88, 101, 242, 0.2)',
-                  transition: 'all 0.3s ease'
+                  border: '1px solid rgba(88, 101, 242, 0.3)',
+                  transition: 'all 0.3s ease',
+                  padding: 'clamp(1.5rem, 4vw, 2rem)',
+                  textAlign: 'center'
                 }}
               >
                 <div style={{
-                  position: 'relative',
-                  overflow: 'hidden',
-                  height: '280px',
-                  backgroundColor: '#1a1a2e'
+                  width: 'clamp(80px, 15vw, 100px)',
+                  height: 'clamp(80px, 15vw, 100px)',
+                  background: 'linear-gradient(135deg, #5865f2, #4b6cb7)',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 1rem auto'
                 }}>
-                  {!imageErrors[member.id] ? (
-                    <motion.img
-                      whileHover={{ scale: 1.08 }}
-                      transition={{ duration: 0.4 }}
-                      src={member.image}
-                      alt={member.name}
-                      style={imageStyle}
-                      onError={() => handleImageError(member.id)}
-                    />
-                  ) : (
-                    <div style={{
-                      width: '100%',
-                      height: '100%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      background: 'linear-gradient(135deg, #5865f2, #4b6cb7)',
-                      color: 'white',
-                      fontSize: '3rem',
-                      fontWeight: 'bold'
-                    }}>
-                      {member.name.charAt(0)}
-                    </div>
-                  )}
-                  {/* Darker gradient overlay for better text visibility */}
-                  <div style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    background: 'linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.3), transparent)',
-                    padding: '1.2rem 1rem 0.8rem'
-                  }}>
-                    <h3 style={{
-                      fontSize: '1.2rem',
-                      fontWeight: 'bold',
-                      marginBottom: '0.2rem',
-                      color: '#ffffff',
-                      textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
-                    }}>
-                      {member.name}
-                    </h3>
-                    <p style={{
-                      color: '#00ffff',
-                      fontWeight: '700',
-                      fontSize: '0.85rem',
-                      textShadow: '1px 1px 1px rgba(0,0,0,0.3)'
-                    }}>
-                      {member.role}
-                    </p>
-                  </div>
+                  <FiUser size={40} color="#ffffff" />
                 </div>
-                <div style={{
-                  padding: '0.6rem 0.8rem',
-                  borderTop: '1px solid rgba(88, 101, 242, 0.2)',
-                  background: 'rgba(0, 0, 0, 0.6)'
+                <h3 style={{
+                  fontSize: 'clamp(1.2rem, 4vw, 1.4rem)',
+                  fontWeight: 'bold',
+                  marginBottom: '0.3rem',
+                  color: '#ffffff'
                 }}>
-                  <p style={{
-                    color: '#b8c6db',
-                    fontSize: '0.7rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.3rem',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis'
-                  }}>
-                    <FiMail size={11} /> {member.email}
-                  </p>
-                </div>
+                  {member.name}
+                </h3>
+                <p style={{
+                  color: '#00ffff',
+                  fontWeight: '600',
+                  fontSize: 'clamp(0.85rem, 2.5vw, 0.95rem)'
+                }}>
+                  {member.role}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -251,9 +191,9 @@ export default function TeamSection() {
           viewport={{ once: true }}
         >
           <h3 style={{
-            fontSize: '1.8rem',
+            fontSize: 'clamp(1.3rem, 5vw, 1.8rem)',
             textAlign: 'center',
-            marginBottom: '2rem',
+            marginBottom: 'clamp(1.5rem, 4vw, 2rem)',
             color: '#5865f2',
             fontFamily: 'Playfair Display, serif'
           }}>
@@ -261,8 +201,8 @@ export default function TeamSection() {
           </h3>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-            gap: '1.5rem'
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))',
+            gap: 'clamp(1.2rem, 3vw, 1.8rem)'
           }}>
             {otherMembers.map((member, index) => (
               <motion.div
@@ -275,90 +215,42 @@ export default function TeamSection() {
                 onClick={() => setSelectedMember(member)}
                 style={{
                   cursor: 'pointer',
-                  position: 'relative',
-                  borderRadius: '12px',
-                  overflow: 'hidden',
+                  borderRadius: '16px',
                   background: 'rgba(255, 255, 255, 0.03)',
                   backdropFilter: 'blur(10px)',
                   border: '1px solid rgba(88, 101, 242, 0.2)',
-                  transition: 'all 0.3s ease'
+                  transition: 'all 0.3s ease',
+                  padding: 'clamp(1.2rem, 3vw, 1.5rem)',
+                  textAlign: 'center'
                 }}
               >
                 <div style={{
-                  position: 'relative',
-                  overflow: 'hidden',
-                  height: '260px',
-                  backgroundColor: '#1a1a2e'
+                  width: 'clamp(65px, 12vw, 80px)',
+                  height: 'clamp(65px, 12vw, 80px)',
+                  background: 'linear-gradient(135deg, #5865f2, #4b6cb7)',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 0.8rem auto'
                 }}>
-                  {!imageErrors[member.id] ? (
-                    <motion.img
-                      whileHover={{ scale: 1.08 }}
-                      transition={{ duration: 0.4 }}
-                      src={member.image}
-                      alt={member.name}
-                      style={imageStyle}
-                      onError={() => handleImageError(member.id)}
-                    />
-                  ) : (
-                    <div style={{
-                      width: '100%',
-                      height: '100%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      background: 'linear-gradient(135deg, #5865f2, #4b6cb7)',
-                      color: 'white',
-                      fontSize: '3rem',
-                      fontWeight: 'bold'
-                    }}>
-                      {member.name.charAt(0)}
-                    </div>
-                  )}
-                  {/* Darker gradient overlay for better text visibility */}
-                  <div style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    background: 'linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.3), transparent)',
-                    padding: '1rem 1rem 0.6rem'
-                  }}>
-                    <h3 style={{
-                      fontSize: '1.1rem',
-                      fontWeight: 'bold',
-                      marginBottom: '0.2rem',
-                      color: '#ffffff',
-                      textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
-                    }}>
-                      {member.name}
-                    </h3>
-                    <p style={{
-                      color: '#00ffff',
-                      fontWeight: '700',
-                      fontSize: '0.8rem',
-                      textShadow: '1px 1px 1px rgba(0,0,0,0.3)'
-                    }}>
-                      {member.role}
-                    </p>
-                  </div>
+                  <FiUser size={32} color="#ffffff" />
                 </div>
-                <div style={{
-                  padding: '0.5rem 0.8rem',
-                  borderTop: '1px solid rgba(88, 101, 242, 0.2)',
-                  background: 'rgba(0, 0, 0, 0.6)'
+                <h3 style={{
+                  fontSize: 'clamp(1rem, 3.5vw, 1.2rem)',
+                  fontWeight: 'bold',
+                  marginBottom: '0.2rem',
+                  color: '#ffffff'
                 }}>
-                  <p style={{
-                    color: '#b8c6db',
-                    fontSize: '0.65rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.3rem',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis'
-                  }}>
-                    <FiMail size={10} /> {member.email}
-                  </p>
-                </div>
+                  {member.name}
+                </h3>
+                <p style={{
+                  color: '#00ffff',
+                  fontWeight: '600',
+                  fontSize: 'clamp(0.75rem, 2vw, 0.85rem)'
+                }}>
+                  {member.role}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -379,7 +271,7 @@ export default function TeamSection() {
               left: 0,
               right: 0,
               bottom: 0,
-              background: 'rgba(0, 0, 0, 0.85)',
+              background: 'rgba(0, 0, 0, 0.9)',
               backdropFilter: 'blur(20px)',
               zIndex: 2000,
               display: 'flex',
@@ -395,12 +287,10 @@ export default function TeamSection() {
               exit={{ scale: 0.8, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
               style={{
-                maxWidth: '850px',
+                maxWidth: '600px',
                 width: '100%',
-                maxHeight: '80vh',
-                overflow: 'auto',
                 background: 'linear-gradient(135deg, rgba(20, 20, 40, 0.98), rgba(10, 10, 26, 0.98))',
-                borderRadius: '16px',
+                borderRadius: '20px',
                 border: '1px solid rgba(88, 101, 242, 0.3)',
                 boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
                 position: 'relative'
@@ -410,13 +300,13 @@ export default function TeamSection() {
                 onClick={() => setSelectedMember(null)}
                 style={{
                   position: 'absolute',
-                  top: '12px',
-                  right: '12px',
+                  top: '15px',
+                  right: '15px',
                   background: 'rgba(255,255,255,0.1)',
                   border: 'none',
                   borderRadius: '50%',
-                  width: '32px',
-                  height: '32px',
+                  width: '35px',
+                  height: '35px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -429,177 +319,141 @@ export default function TeamSection() {
               </button>
               
               <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-                gap: '1rem'
+                padding: 'clamp(1.5rem, 5vw, 2rem)'
               }}>
-                {/* Image Section */}
                 <div style={{
-                  position: 'relative',
-                  height: '100%',
-                  minHeight: '300px',
-                  backgroundColor: '#1a1a2e'
+                  width: 'clamp(80px, 20vw, 100px)',
+                  height: 'clamp(80px, 20vw, 100px)',
+                  background: 'linear-gradient(135deg, #5865f2, #4b6cb7)',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 1rem auto'
                 }}>
-                  {!imageErrors[selectedMember.id] ? (
-                    <img
-                      src={selectedMember.image}
-                      alt={selectedMember.name}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        objectPosition: 'center 30%',
-                        borderTopLeftRadius: '16px',
-                        borderBottomLeftRadius: '16px'
-                      }}
-                      onError={() => handleImageError(selectedMember.id)}
-                    />
-                  ) : (
-                    <div style={{
-                      width: '100%',
-                      height: '100%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      background: 'linear-gradient(135deg, #5865f2, #4b6cb7)',
-                      color: 'white',
-                      fontSize: '4rem',
-                      fontWeight: 'bold',
-                      borderRadius: '16px'
-                    }}>
-                      {selectedMember.name.charAt(0)}
-                    </div>
-                  )}
+                  <FiUser size={45} color="#ffffff" />
                 </div>
                 
-                {/* Details Section */}
-                <div style={{
-                  padding: '1.5rem'
+                <h2 style={{
+                  fontSize: 'clamp(1.5rem, 5vw, 1.8rem)',
+                  marginBottom: '0.3rem',
+                  fontFamily: 'Playfair Display, serif',
+                  color: '#ffffff',
+                  textAlign: 'center'
                 }}>
-                  <h2 style={{
-                    fontSize: '1.8rem',
-                    marginBottom: '0.2rem',
-                    fontFamily: 'Playfair Display, serif',
-                    color: '#ffffff'
-                  }}>
-                    {selectedMember.name}
-                  </h2>
-                  <p style={{
+                  {selectedMember.name}
+                </h2>
+                <p style={{
+                  color: '#00ffff',
+                  fontSize: 'clamp(0.9rem, 3vw, 1rem)',
+                  fontWeight: '700',
+                  marginBottom: '0.8rem',
+                  textAlign: 'center'
+                }}>
+                  {selectedMember.role}
+                </p>
+                
+                <p style={{
+                  color: '#b8c6db',
+                  fontSize: '0.8rem',
+                  marginBottom: '1rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.4rem',
+                  wordBreak: 'break-all',
+                  textAlign: 'center'
+                }}>
+                  <FiMail size={12} /> {selectedMember.email}
+                </p>
+                
+                <p style={{
+                  color: '#e0e0e0',
+                  lineHeight: '1.6',
+                  marginBottom: '1.5rem',
+                  fontSize: 'clamp(0.85rem, 2.5vw, 0.9rem)',
+                  textAlign: 'center'
+                }}>
+                  {selectedMember.bio}
+                </p>
+                
+                <div style={{ marginBottom: '1.5rem' }}>
+                  <h4 style={{
                     color: '#00ffff',
-                    fontSize: '0.95rem',
-                    fontWeight: '700',
-                    marginBottom: '0.5rem'
+                    marginBottom: '0.5rem',
+                    fontSize: '0.9rem',
+                    textAlign: 'center'
                   }}>
-                    {selectedMember.role}
-                  </p>
-                  
-                  <p style={{
-                    color: '#b8c6db',
-                    fontSize: '0.8rem',
-                    marginBottom: '1rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.4rem',
-                    wordBreak: 'break-all'
-                  }}>
-                    <FiMail size={12} /> {selectedMember.email}
-                  </p>
-                  
-                  <p style={{
-                    color: '#e0e0e0',
-                    lineHeight: '1.5',
-                    marginBottom: '1rem',
-                    fontSize: '0.85rem'
-                  }}>
-                    {selectedMember.bio}
-                  </p>
-                  
-                  <div style={{ marginBottom: '1rem' }}>
-                    <h4 style={{
-                      color: '#00ffff',
-                      marginBottom: '0.2rem',
-                      fontSize: '0.85rem'
-                    }}>
-                      Education
-                    </h4>
-                    <p style={{ color: '#cccccc', fontSize: '0.85rem' }}>{selectedMember.education}</p>
-                  </div>
-                  
-                  <div style={{ marginBottom: '1rem' }}>
-                    <h4 style={{
-                      color: '#00ffff',
-                      marginBottom: '0.2rem',
-                      fontSize: '0.85rem'
-                    }}>
-                      Core Expertise
-                    </h4>
-                    <div style={{
-                      display: 'flex',
-                      flexWrap: 'wrap',
-                      gap: '0.3rem'
-                    }}>
-                      {selectedMember.expertise.map((skill, idx) => (
-                        <span
-                          key={idx}
-                          style={{
-                            background: 'rgba(0, 255, 255, 0.15)',
-                            padding: '0.15rem 0.5rem',
-                            borderRadius: '50px',
-                            fontSize: '0.7rem',
-                            color: '#00ffff',
-                            border: '1px solid rgba(0, 255, 255, 0.3)'
-                          }}
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  
+                    Core Expertise
+                  </h4>
                   <div style={{
                     display: 'flex',
-                    gap: '0.6rem',
-                    marginTop: '0.8rem',
-                    flexWrap: 'wrap'
+                    flexWrap: 'wrap',
+                    gap: '0.5rem',
+                    justifyContent: 'center'
                   }}>
-                    <motion.a
-                      whileHover={{ scale: 1.03 }}
-                      href={`mailto:${selectedMember.email}`}
-                      style={{
-                        background: 'linear-gradient(135deg, #5865f2, #4b6cb7)',
-                        padding: '0.4rem 1rem',
-                        borderRadius: '50px',
-                        color: 'white',
-                        textDecoration: 'none',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.3rem',
-                        fontSize: '0.75rem'
-                      }}
-                    >
-                      <FiMail size={12} /> Email
-                    </motion.a>
-                    <motion.a
-                      whileHover={{ scale: 1.03 }}
-                      href={selectedMember.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        background: 'rgba(255,255,255,0.1)',
-                        padding: '0.4rem 1rem',
-                        borderRadius: '50px',
-                        color: '#00ffff',
-                        textDecoration: 'none',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.3rem',
-                        border: '1px solid #00ffff',
-                        fontSize: '0.75rem'
-                      }}
-                    >
-                      <FiLinkedin size={12} /> LinkedIn
-                    </motion.a>
+                    {selectedMember.expertise.map((skill, idx) => (
+                      <span
+                        key={idx}
+                        style={{
+                          background: 'rgba(0, 255, 255, 0.15)',
+                          padding: '0.3rem 0.8rem',
+                          borderRadius: '50px',
+                          fontSize: '0.8rem',
+                          color: '#00ffff',
+                          border: '1px solid rgba(0, 255, 255, 0.3)'
+                        }}
+                      >
+                        {skill}
+                      </span>
+                    ))}
                   </div>
+                </div>
+                
+                <div style={{
+                  display: 'flex',
+                  gap: '0.8rem',
+                  marginTop: '1rem',
+                  justifyContent: 'center',
+                  flexWrap: 'wrap'
+                }}>
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    href={`mailto:${selectedMember.email}`}
+                    style={{
+                      background: 'linear-gradient(135deg, #5865f2, #4b6cb7)',
+                      padding: '0.5rem 1.2rem',
+                      borderRadius: '50px',
+                      color: 'white',
+                      textDecoration: 'none',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.4rem',
+                      fontSize: '0.8rem'
+                    }}
+                  >
+                    <FiMail size={14} /> Email
+                  </motion.a>
+                  <motion.a
+                    whileHover={{ scale: 1.05 }}
+                    href={selectedMember.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      background: 'rgba(255,255,255,0.1)',
+                      padding: '0.5rem 1.2rem',
+                      borderRadius: '50px',
+                      color: '#00ffff',
+                      textDecoration: 'none',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.4rem',
+                      border: '1px solid #00ffff',
+                      fontSize: '0.8rem'
+                    }}
+                  >
+                    <FiLinkedin size={14} /> LinkedIn
+                  </motion.a>
                 </div>
               </div>
             </motion.div>
